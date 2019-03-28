@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Navigation -->
+      <% include ../static/partials/navbar.ejs %>
+
+      <!-- Main Header -->
+      <h1>Lists</h1>
+
+      <ul class="list-group">
+        <%lists.forEach(list) => { %>
+          <li class="list-group-item">
+            <a href="lists/<%=list.id %>"> <%=list.title %> </a>
+          </li>
+        <% }) %>
+      </ul>
+
+    </main>
+  </body>
+  <!-- Footer -->
+  <% include ../static/partials/footer.ejs %>
+</html>

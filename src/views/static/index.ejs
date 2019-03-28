@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head.ejs %>
+  </head>
+  <body>
+
+      <!-- Navigation -->
+      <% include ./partials/navbar.ejs %>
+
+      <!-- Page Content -->
+      <main class="container">
+
+        <!-- Header -->
+        <header class="jumbotron my-4">
+          <h1 class="display-3">Welcome to QuickList</h1>
+          <p class="lead">
+            An application created to allow users a quick and convenient way to create lists. Sign up today!
+          </p>
+          <a href="#" class="btn btn-primary btn-lg">Sign up</a>
+        </header>
+
+        <!-- Page Features -->
+        <section class="row text-center">
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Create Lists</h4>
+            <p class="card-text">Create as many lists as you want. Completely free!</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Privacy Matters</h4>
+            <p class="card-text">Want to keep some items away from prying eyes? Simply mark it as private and only you will be able to view it.</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Share Your List</h4>
+            <p class="card-text">Share your list with friends and view any of their public lists as well.</p>
+          </section>
+
+        </section>
+
+      </main>
+
+      <!-- Bootstrap/jQuery scripts -->
+      <% include ./partials/baseScripts.ejs %>
+
+    </body>
+
+     <!-- Footer -->
+     <% include ./partials/footer.ejs %>
+     
+</html>
