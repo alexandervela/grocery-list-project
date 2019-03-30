@@ -1,3 +1,21 @@
 body {
   padding-top: 54px;
 }
+
+footer {
+  margin: 5%;
+  padding: 5%;
+  text-align: center;
+}
+
+.main-heading {
+  font-family: '';
+}
+
+.main-text {
+  font-family: '';
+}
+
+.item-form {
+  width:50%;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+      <h1>New Item</h1>
+
+      <form action="/lists/<%= listId %>/items/create" method="post">
+        <div class="form-group">
+          <label for="name">Item Name</label>
+          <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Item Name">
+        </div>
+        <div class="form-group">
+          <label for="price">Item Price</label>
+          <input type="text" class="form-control" name="price" aria-describedby="priceHelp" placeholder="Enter Price">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+
+  <% include ../static/partials/footer.ejs %>
+
+</html>

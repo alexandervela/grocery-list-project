@@ -12,6 +12,18 @@
       <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
         <button type="submit" class="btn btn-danger">Delete</button>
       </form>
+      <hr>
+
+      <h1>Items</h1>
+      <a href="/lists/<%= list.id %>/items/new" class="btn btn-success">New Item</a>
+
+      <section id="item-list">
+        <% if(list.items) { %>
+          <% list.items.forEach((item) => { %>
+            <%- include("../items/show.ejs", {item}) %>
+          <% }) %>
+        <% } %>
+       </section>
 
     </main>
 

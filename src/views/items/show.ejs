@@ -1,0 +1,21 @@
+<% if(item) { %>
+    <div class="item-form">
+      <hr>
+
+      <p>Item: <%= item.name %></p>
+
+      <p>Price: <%= item.price %></p>
+      <!-- Update Item model to have a boolean purchased value -->
+      <form>
+        <input type="checkbox" name="purchased" value="Purchased"> Mark as purchased
+      </form>
+
+      <a href="/lists/<%= item.listId %>/items/<%= item.id %>/edit" class="btn btn btn-sm btn-outline-warning">Edit</a>
+      
+      <form style="display:initial" action="/lists/<%= item.listId %>/items/<%= item.id %>/destroy" method="post">
+        <button type="submit" class="btn btn btn-sm btn-outline-danger">Delete</button>
+      </form>
+
+      <hr>
+    </div>
+  <% } %>
