@@ -2,21 +2,25 @@
 <html>
   <head>
     <% include ../static/partials/head.ejs %>
+    <title>New Item Form</title>
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-      <h1>New Item</h1>
+      <% include ../static/partials/messages.ejs %>
+      <h1 class="white-heading">New Item</h1>
 
       <form action="/lists/<%= listId %>/items/create" method="post">
         <div class="form-group">
-          <label for="name">Item Name</label>
+          <label class="white-text" for="name">Item Name</label>
           <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Item Name">
+          <small class="text-muted" id="nameHelp">item name must be 2 or more characters in length.</small>
         </div>
         <div class="form-group">
-          <label for="price">Item Price</label>
+          <label class="white-text" for="price">Item Price</label>
           <input type="text" class="form-control" name="price" aria-describedby="priceHelp" placeholder="Enter Price">
+          <small class="text-muted" id="priceHelp">price must be 4 or more characters in length.</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

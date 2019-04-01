@@ -11,7 +11,7 @@ module.exports = {
     })
   },
   new(req, res, next){
-    res.render("lists/newList");
+    res.render("lists/new");
   },
   create(req, res, next){
     let newList = {

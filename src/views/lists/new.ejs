@@ -2,17 +2,18 @@
 <html>
   <head>
     <% include ../static/partials/head.ejs %>
+    <title>New List Form</title>
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
 
-      <h1>New List</h1>
+      <h1 class="white-heading">New List</h1>
 
       <form action="/lists/create" method="post">
         <div class="form-group">
-          <label for="title">List Title</label>
+          <label class="white-text" for="title">List Title</label>
           <input type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

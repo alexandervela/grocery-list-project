@@ -1,21 +1,80 @@
+nav {
+  background-color: #01676b
+}
+
 body {
-  padding-top: 54px;
+  background-color: #21aa93;
+  padding-top: 55px;
 }
 
 footer {
+  background-color: #21aa93;
   margin: 5%;
   padding: 5%;
   text-align: center;
 }
 
-.main-heading {
-  font-family: '';
+/* Headings */
+
+.welcome-header {
+  background-color: #01676b;
+  color: #fff;
+  font-family: 'Ubuntu-Bold';
 }
 
-.main-text {
-  font-family: '';
+.white-heading {
+  color: #fff;
+  font-family: 'Ubuntu-Bold';
+  margin-top: 20px;
 }
+
+/* Page Texts */
+
+.white-text {
+  color: #fff;
+}
+
+/* Item */
 
 .item-form {
   width:50%;
+}
+
+.checkbox-form {
+  margin-bottom: 20px;
+}
+
+/* Bootstrap Card Adjustment */
+
+.topic {
+  color: #fff;
+}
+
+.card-title {
+  font-family: 'Ubuntu';
+  font-size: 40px;
+  margin-top: 10%;
+}
+
+.card-text {
+  font-family: 'Ubuntu';
+  font-size: 20px;
+}
+
+@media (max-width:1028px) {
+  .topic {
+    margin: 5% 3%;
+  }
+}
+
+/* Footer Section */
+
+.footer {
+  color: #fff;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.social-icon {
+  margin: 20px;
 }

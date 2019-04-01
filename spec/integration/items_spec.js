@@ -76,6 +76,29 @@ describe("routes : items", () => {
          }
        );
      });
+
+     it("should not create a new item that fails validations", (done) => {
+      const options = {
+        url: `${base}/${this.list.id}/items/create`,
+        form: {
+          name: "a"
+        }
+      };
+  
+      request.post(options,
+        (err, res, body) => {
+          Item.findOne({where: {name: "a"}})
+          .then((post) => {
+              expect(post).toBeNull();
+              done();
+          })
+          .catch((err) => {
+            console.log(err);
+            done();
+          });
+        }
+      );
+    });
  
   });
 
@@ -133,7 +156,8 @@ describe("routes : items", () => {
         const options = {
           url: `${base}/${this.list.id}/items/${this.item.id}/update`,
           form: {
-            name: "Orange"
+            name: "Orange",
+            price: 2.05
           }
         };
         request.post(options,
@@ -146,6 +170,7 @@ describe("routes : items", () => {
           })
           .then((item) => {
             expect(item.name).toBe("Orange");
+            expect(item.price).toBe(2.05);
             done();
           });
         });

@@ -2,22 +2,23 @@
 <html>
   <head>
     <% include ../static/partials/head.ejs %>
+    <title>View <%= list.title %></title>
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-      <h1><%= list.title %></h1>
+      <h1 class="white-heading"><%= list.title %></h1>
       <a href="/lists/<%= list.id %>/edit" class="btn btn-warning">Edit</a>
       <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
         <button type="submit" class="btn btn-danger">Delete</button>
       </form>
       <hr>
 
-      <h1>Items</h1>
+      <h1 class="white-heading">Items</h1>
       <a href="/lists/<%= list.id %>/items/new" class="btn btn-success">New Item</a>
 
-      <section id="item-list">
+      <section class="white-text" id="item-list">
         <% if(list.items) { %>
           <% list.items.forEach((item) => { %>
             <%- include("../items/show.ejs", {item}) %>

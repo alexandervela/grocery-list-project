@@ -2,17 +2,18 @@
 <html>
   <head>
     <% include ../static/partials/head.ejs %>
+    <title>Edit List Form</title>
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
 
-      <h1>Edit List</h1>
+      <h1 class="white-heading">Edit List</h1>
 
       <form action="/lists/<%= list.id %>/update" method="post">
         <div class="form-group">
-          <label for="title">List Title</label>
+          <label class="white-text" for="title">List Title</label>
           <input value="<%= list.title %>" type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
