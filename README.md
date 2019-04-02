@@ -21,14 +21,19 @@ This is where QuickList comes in! QuickList is a full-stack web application that
 * Passport - Sign In/Sign Out
 * Google Fonts - Font Style
 * Font Awesome - Icons
+* Heroku - Deploy App
 
 ### Features:
 
 ### If I Had More Time:
 
+* Implementing more testing to cover edge cases
+* Currently price accepts any boolean values with characters greater than 4
+* Currently if updating, must update ALL fields due to validation check
 * Implementing more testing to cover any edge cases
 * Add the ability to group lists by similarity
 * Allow users to move/organize list items
+* Complete authorization
 
 ### Available Scripts
 

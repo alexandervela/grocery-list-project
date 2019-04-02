@@ -18,6 +18,7 @@ describe("Item", () => {
         Item.create({
           name: "Apples",
           price: 1.05,
+          purchased: false,
           listId: this.list.id
         })
         .then((item) => {
@@ -39,11 +40,13 @@ describe("Item", () => {
       Item.create({
         name: "Bananas",
         price: 1.99,
+        purchased: false,
         listId: this.list.id
       })
       .then((item) => {
         expect(item.name).toBe("Bananas");
         expect(item.price).toBe(1.99);
+        expect(item.purchased).toBe(false);
         done();
 
       })
@@ -64,6 +67,7 @@ describe("Item", () => {
       })
       .catch((err) => {
         expect(err.message).toContain("Item.price cannot be null");
+        expect(err.message).toContain("Item.purchased cannot be null");
         expect(err.message).toContain("Item.listId cannot be null");
         done();
       })

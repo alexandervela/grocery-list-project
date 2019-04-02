@@ -5,10 +5,14 @@
       <p>Item: <%= item.name %></p>
 
       <p>Price: $<%= item.price %></p>
-      <!-- Update Item model to have a boolean purchased value -->
-      <form class="checkbox-form">
-        <input type="checkbox" name="purchased" value="Purchased"> Mark as purchased
-      </form>
+      
+      <p>Purchased: 
+        <% if(item.purchased === false) { %>
+          No
+          <% } else { %>
+            Yes
+            <% } %>
+      </p>
 
       <a href="/lists/<%= item.listId %>/items/<%= item.id %>/edit" class="btn btn btn-sm btn-outline-warning">Edit</a>
       

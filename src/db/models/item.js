@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
       allowNull: false
     },
+    purchased: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     listId: {
       type: DataTypes.INTEGER,
       allowNull: false

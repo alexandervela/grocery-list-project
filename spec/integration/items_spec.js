@@ -21,6 +21,7 @@ describe("routes : items", () => {
         Item.create({
           name: "Apples",
           price: 1.05,
+          purchased: false,
           listId: this.list.id
         })
         .then((item) => {
@@ -55,7 +56,8 @@ describe("routes : items", () => {
          url: `${base}/${this.list.id}/items/create`,
          form: {
            name: "Bananas",
-           price: 1.99
+           price: 1.99,
+           purchased: false
          }
        };
        request.post(options,
@@ -66,6 +68,7 @@ describe("routes : items", () => {
              expect(item).not.toBeNull();
              expect(item.name).toBe("Bananas");
              expect(item.price).toBe(1.99);
+             expect(item.purchased).toBe(false);
              expect(item.listId).not.toBeNull();
              done();
            })
@@ -88,8 +91,8 @@ describe("routes : items", () => {
       request.post(options,
         (err, res, body) => {
           Item.findOne({where: {name: "a"}})
-          .then((post) => {
-              expect(post).toBeNull();
+          .then((item) => {
+              expect(item).toBeNull();
               done();
           })
           .catch((err) => {
@@ -144,7 +147,8 @@ describe("routes : items", () => {
         url: `${base}/${this.list.id}/items/${this.item.id}/update`,
         form: {
           name: "Orange",
-          price: 1.05
+          price: 1.05,
+          purchased: false
         }
       }, (err, res, body) => {
         expect(res.statusCode).toBe(302);
@@ -157,7 +161,8 @@ describe("routes : items", () => {
           url: `${base}/${this.list.id}/items/${this.item.id}/update`,
           form: {
             name: "Orange",
-            price: 2.05
+            price: 2.05,
+            purchased: false
           }
         };
         request.post(options,
@@ -171,6 +176,7 @@ describe("routes : items", () => {
           .then((item) => {
             expect(item.name).toBe("Orange");
             expect(item.price).toBe(2.05);
+            expect(item.purchased).toBe(false);
             done();
           });
         });

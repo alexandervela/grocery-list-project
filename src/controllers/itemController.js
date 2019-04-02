@@ -8,6 +8,7 @@ module.exports = {
     let newItem= {
       name: req.body.name,
       price: req.body.price,
+      purchased: req.body.purchased,
       listId: req.params.listId
     };
     itemQueries.addItem(newItem, (err, item) => {
@@ -41,7 +42,7 @@ module.exports = {
       if(err || item == null){
         res.redirect(404, `/lists/${req.params.listId}/items/${req.params.id}/edit`);
       } else {
-        res.redirect(`/lists/${req.params.listId}/items/${req.params.id}`);
+        res.redirect(`/lists/${req.params.listId}`);
       }
     });
   }
