@@ -16,13 +16,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.FLOAT
       },
-      createdAt: {
+      purchased: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.BOOLEAN
       },
       listId: {
         allowNull: false,
@@ -33,6 +29,24 @@ module.exports = {
           key: "id",
           as: "listId"
         }
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "Users",
+          key: "id",
+          as: "userId"
+        }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },

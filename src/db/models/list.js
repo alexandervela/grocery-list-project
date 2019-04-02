@@ -4,6 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    private: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {});
   List.associate = function(models) {

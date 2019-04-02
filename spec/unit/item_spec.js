@@ -1,16 +1,26 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const List = require("../../src/db/models").List;
 const Item = require("../../src/db/models").Item;
+const User = require("../../src/db/models").User;
 
 describe("Item", () => {
 
   beforeEach((done) => {
     this.list;
     this.item;
+    this.user;
     sequelize.sync({force: true}).then((res) => {
+      User.create({
+        email: "user@example.com",
+        password: "123456"
+      })
+      .then((user) => {
+        this.user = user;
 
       List.create({
-        title: "Grocery List"
+        title: "Grocery List",
+        private: false,
+        userId: this.user.id
       })
       .then((list) => {
         this.list = list;
@@ -18,7 +28,8 @@ describe("Item", () => {
         Item.create({
           name: "Apples",
           price: 1.05,
-          listId: this.list.id
+          listId: this.list.id,
+          userId: this.user.id
         })
         .then((item) => {
           this.item = item;
@@ -29,7 +40,8 @@ describe("Item", () => {
         console.log(err);
         done();
       });
-    });
+    })
+  });
 
   });
 
@@ -39,11 +51,15 @@ describe("Item", () => {
       Item.create({
         name: "Bananas",
         price: 1.99,
-        listId: this.list.id
+        purchased: false,
+        listId: this.list.id,
+        userId: this.user.id
       })
       .then((item) => {
         expect(item.name).toBe("Bananas");
         expect(item.price).toBe(1.99);
+        expect(item.purchased).toBe(false);
+        expect(item.userId).toBe(this.user.id);
         done();
 
       })
@@ -64,7 +80,9 @@ describe("Item", () => {
       })
       .catch((err) => {
         expect(err.message).toContain("Item.price cannot be null");
+        expect(err.message).toContain("Item.purchased cannot be null");
         expect(err.message).toContain("Item.listId cannot be null");
+        expect(err.message).toContain("Item.userId cannot be null");
         done();
       })
     });
@@ -75,7 +93,11 @@ describe("Item", () => {
 
     it("should associate a list and a item together", (done) => {
       List.create({
-        title: "Walmart List"
+        title: "Walmart List",
+        private: false,
+        userId: this.user.id,
+        purchased: false,
+        userId: this.user.id
       })
       .then((newList) => {
         expect(this.item.listId).toBe(this.list.id);

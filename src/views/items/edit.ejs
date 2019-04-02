@@ -20,6 +20,10 @@
           <label class="white-text" for="price">Item Price</label>
           <textarea rows="4" class="form-control" name="price" placeholder="Enter Price"><%= item.price %></textarea>
         </div>
+        <div class="form-group">
+          <input class="white-text" type="radio" name="purchased" value="false" checked> Not purchased
+          <input class="white-text" type="radio" name="purchased" value="true"> Purchased
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
     </main>

@@ -39,10 +39,11 @@ footer {
 .item-form {
   width:50%;
 }
-
-.checkbox-form {
+/*
+.radio-form {
   margin-bottom: 20px;
 }
+*/
 
 /* Bootstrap Card Adjustment */
 
@@ -52,13 +53,13 @@ footer {
 
 .card-title {
   font-family: 'Ubuntu';
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 10%;
 }
 
 .card-text {
   font-family: 'Ubuntu';
-  font-size: 20px;
+  font-size: 15px;
 }
 
 @media (max-width:1028px) {

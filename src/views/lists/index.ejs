@@ -10,7 +10,9 @@
       <% include ../static/partials/navbar.ejs %>
 
       <h1 class="white-heading">Lists</h1>
+      <% if(currentUser) { %>
       <a href="/lists/new" class="btn btn-success">New List</a>
+      <% } %>
 
       <ul class="list-group">
         <% lists.forEach((list) => { %>
